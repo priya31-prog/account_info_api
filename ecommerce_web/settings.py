@@ -29,7 +29,10 @@ DEBUG = False
 # post api call
 # APPEND_SLASH = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "account-info-api.onrender.com",
+    "http://localhost:8000/",
+]
 
 
 # Application definition
