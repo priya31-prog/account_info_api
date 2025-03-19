@@ -88,10 +88,10 @@ WSGI_APPLICATION = "ecommerce_web.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "ecommerce",
-        "USER": "root",
-        "PASSWORD": "Priya@31",
-        "HOST": "localhost",
+        "NAME": "bpqkkuakee03qreqweeq",
+        "USER": "utq0465ghbntscxh",
+        "PASSWORD": "FLSxKSpSjAt4S1iTKCBn",
+        "HOST": "bpqkkuakee03qreqweeq-mysql.services.clever-cloud.com",
         "PORT": "3306",
     }
 }
