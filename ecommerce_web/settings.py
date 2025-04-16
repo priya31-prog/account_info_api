@@ -99,9 +99,13 @@ DATABASES = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+
+# for development --- development changes
+CORS_ALLOWED_ORIGINS = True
+
+# [
+#     "http://localhost:3000",
+# ]
 
 
 # Password validation
