@@ -33,7 +33,8 @@ ALLOWED_HOSTS = [
     "account-info-api.onrender.com",
     "http://localhost:8000/",
     "*",
-    "http://localhost:57054",
+    "http://localhost:57054/",
+    "http://localhost:57533/",
 ]
 
 
