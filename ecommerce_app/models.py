@@ -6,7 +6,7 @@ from django.db import models
 # using functions
 class AccountInfo(models.Model):
     userid = models.AutoField(primary_key=True)
-    userName = models.CharField(max_length=200)
+    userName = models.CharField(max_length=200, unique=True)
     phoneNumber = models.CharField(
         max_length=20,
         null=True,
@@ -17,7 +17,7 @@ class AccountInfo(models.Model):
         null=True,
         blank=True,
     )
-    email = models.CharField(max_length=150)
+    email = models.CharField(max_length=150, unique=True)
     password = models.CharField(max_length=50)
 
     class Meta:
