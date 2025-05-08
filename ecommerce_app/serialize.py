@@ -16,6 +16,13 @@ class AccountInfoSerialize(serializers.ModelSerializer):
             "password",
         ]
 
+        # DRF way of handling exception
+
+    # def validate_userName(self, value):
+    #     if AccountInfo.objects.filter(userName=value).exists():
+    #         raise serializers.ValidationError("Username already exists")
+    #     return value
+
 
 class AddressSerialize(serializers.ModelSerializer):
     user_id = serializers.CharField(source="accountInfo_userid")
