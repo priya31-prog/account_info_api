@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status, mixins, generics
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
+from django.db import IntegrityError
 
 
 # class AccountInfoView(viewsets.ModelViewSet):
@@ -28,9 +29,19 @@ def AccountInfoView(request):
     elif request.method == "POST":
         serializer = AccountInfoSerialize(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        print(serializer.errors)
+            try:
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            except IntegrityError as e:
+                if "Duplicate entry" in str(e):
+                    return Response(
+                        {"error": "Username already exists."},
+                        status=status.HTTP_400_BAD_REQUEST,
+                    )
+                return Response(
+                    {"error": "Database error."},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
